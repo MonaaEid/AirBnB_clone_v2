@@ -9,7 +9,8 @@ mkdir -p /data/web_static/
 mkdir -p /data/web_static/releases/
 mkdir -p /data/web_static/shared/
 mkdir -p /data/web_static/releases/test/
-touch /data/web_static/releases/test/index.html | echo "<html><head></head><body><h4>hello folks</h4></body></html>" > /data/web_static/releases/test/index.html
+touch /data/web_static/releases/test/index.html
+echo "<html><head></head><body><h4>hello folks</h4></body></html>" > /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -R:  ubuntu:ubuntu /data
 
