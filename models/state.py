@@ -18,22 +18,22 @@ class State(BaseModel, Base):
         name = ""
     if getenv("HBNB_TYPE_STORAGE") != "db":
         @property
-        # def cities(self):
-        #     from models import storage
-        #     from models.city import City
-        #     my_list = []
-        #     my_dict = models.storage.all('City')
-        #     for city, value in my_dict.items():
-        #         if self.id == city.state_id:
-        #             my_list.append(value)
-        #     return my_list
         def cities(self):
-            """returns the list of City"""
             from models import storage
             from models.city import City
-
-            result = []
+            my_list = []
+            my_dict = models.storage.all('City')
             for value in storage.all(City).values():
-                if value.state_id == self.id:
-                    result.append(value)
-            return result
+                if self.id == value.state_id:
+                    my_list.append(value)
+            return my_list
+        # def cities(self):
+        #     """returns the list of City"""
+        #     from models import storage
+        #     from models.city import City
+
+        #     result = []
+        #     for value in storage.all(City).values():
+        #         if value.state_id == self.id:
+        #             result.append(value)
+        #     return result
