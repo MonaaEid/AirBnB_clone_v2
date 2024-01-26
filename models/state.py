@@ -22,7 +22,7 @@ class State(BaseModel, Base):
             from models import storage
             from models.city import City
             my_list = []
-            my_dict = models.storage.all('City')
+            my_dict = storage.all('City')
             for value in my_dict.values():
                 if self.id == value.state_id:
                     my_list.append(value)
