@@ -14,14 +14,12 @@ def states():
 
 
 @app.route("/states/<id>", strict_slashes=False)
-def states_id(id):
-    if state is None:
-        state = None
-    else:
-        state = storage.get(State, id)
+def states_id(id=None):
+    for state in storage.all(State).values():
+        if state.id == id:
+            states = sorted(states, key=lambda state: state.name)
 
-        cities = sorted(state.cities, key=lambda city: city.name)
-        return render_template('9-states_id.html', state=state, cities=cities)
+        return render_template("9-states.html", state=state)
 
 
 @app.teardown_appcontext
