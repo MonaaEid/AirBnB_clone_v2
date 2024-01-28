@@ -17,9 +17,10 @@ def states():
 def states_id(id=None):
     for state in storage.all(State).values():
         if state.id == id:
-            states = sorted(states, key=lambda state: state.name)
+            state = sorted(states, key=lambda state: state.name)
 
         return render_template("9-states.html", state=state)
+
 
 
 @app.teardown_appcontext
