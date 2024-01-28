@@ -21,11 +21,12 @@ def states_id(id=None):
         if state.id == id:
             state = sorted(states, key=lambda state: state.name)
 
-        return render_template("9-states.html", state=state)
+    return render_template("9-states.html", state=state)
 
 
 @app.teardown_appcontext
 def db_teardown(exception):
+    """c"""
     storage.close()
 
 
