@@ -4,14 +4,14 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-        {% if request.endpoint == 'states' %}
+        {% if states is defined %}
             <H1>States</H1>
             <UL>
                 {% for item in states %}
                     <LI>{{ item.id }}: <B>{{ item.name }}</B></LI>
                 {% endfor %}
             </UL>
-        {% elif request.endpoint == 'state' %}
+        {% elif state is defined %}
             <H1>State: {{ state.name }}</H1>
             <H3>Cities:</H3>
             <UL>
