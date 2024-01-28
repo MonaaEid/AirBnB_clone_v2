@@ -15,13 +15,13 @@ def states():
 
 
 @app.route("/states/<id>", strict_slashes=False)
-def states_id(id=None):
+def states_id(id):
     """comment"""
     for state in storage.all(State).values():
         if state.id == id:
             state = sorted(states, key=lambda state: state.name)
-            return render_template("9-states.html", state=state)
-    return render_template("9-states.html")
+    return render_template("9-states.html", state=state)
+    # return render_template("9-states.html")
 
 @app.teardown_appcontext
 def db_teardown(exception):
