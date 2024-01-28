@@ -10,7 +10,7 @@ app = Flask(__name__)
 def states():
     states = storage.all(State).values()
     states = sorted(states, key=lambda state: state.name)
-    return render_template('8-cities_by_states.html', states=states)
+    return render_template('9-states.html', states=states)
 
 
 @app.route("/states/<id>", strict_slashes=False)
@@ -20,7 +20,6 @@ def states_id(id=None):
             state = sorted(states, key=lambda state: state.name)
 
         return render_template("9-states.html", state=state)
-
 
 
 @app.teardown_appcontext
